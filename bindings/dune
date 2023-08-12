@@ -1,0 +1,5 @@
+(library
+  (name tailscale_bindings)
+  (libraries ctypes ctypes.stubs)
+  (modules tailscale_bindings)
+  (preprocess (pps ppx_jane)))

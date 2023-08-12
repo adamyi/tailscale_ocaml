@@ -1,0 +1,18 @@
+(library
+  (name tailscale)
+  (libraries
+   async
+   async_unix
+   core
+   ctypes
+   ctypes.stubs
+   libtailscale_c
+   tailscale_bindings)
+  (c_names tailscale_stubs)
+  (c_flags (:standard) (-I ../external/libtailscale/))
+  (preprocess (pps ppx_jane)))
+
+(rule
+  (targets tailscale_generated.ml tailscale_stubs.c)
+  (deps   (:first_dep ../gen/tailscale_gen.exe))
+  (action (bash       ./%{first_dep})))

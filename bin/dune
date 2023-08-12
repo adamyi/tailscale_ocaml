@@ -1,0 +1,4 @@
+(executable
+  (name examples)
+  (libraries async core core_unix.command_unix tailscale)
+  (preprocess (pps ppx_jane)))

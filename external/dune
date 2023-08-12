@@ -1,0 +1,8 @@
+(library (name libtailscale_c) (self_build_stubs_archive (tailscale_c)))
+
+(rule
+  (targets libtailscale_c_stubs.a)
+  (deps (source_tree libtailscale))
+  (action (
+    bash
+    "go build -C libtailscale -buildmode=c-archive && cp libtailscale/libtailscale.a libtailscale_c_stubs.a")))

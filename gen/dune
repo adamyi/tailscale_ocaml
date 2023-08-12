@@ -1,0 +1,2 @@
+(executables (names tailscale_gen) (libraries core ctypes ctypes.stubs tailscale_bindings)
+ (preprocess (pps ppx_jane)))
